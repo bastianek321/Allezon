@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Allezon</title>
+    <h:outputStylesheet name="bootstrap.css" library="css"/>
+</h:head>
+
+<h:body style="background: #ffffff">
+    <h:form id="registerform">
+        <div class="container" style="margin-left:600px; margin-top: 10px;width: 400px; height: auto; border: medium">
+            <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
+            <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Rejestracja </h1>
+
+            <!--            https://stackoverflow.com/questions/2385701/regular-expression-for-first-and-last-name-->
+            <h3><label style="font-size: 10px; color: #0f6674" for="name">Imię</label></h3>
+            <h2><h:inputText value="#{registerRequest.name}" style="width: 300px" styleClass="form-control"
+                             id="name"><f:validateLength minimum="3" maximum="50"/><f:validateRegex
+                    pattern="^[a-zA-Z]+$"/></h:inputText></h2>
+
+            <h3><label style="font-size: 10px; color: #0f6674" for="surname">Nazwisko</label></h3>
+            <h2><h:inputText value="#{registerRequest.surname}" style="width: 300px" styleClass="form-control"
+                             id="surname"><f:validateLength minimum="3" maximum="50"/><f:validateRegex
+                    pattern="^[a-zA-Z]+$"/></h:inputText></h2>
+            <!--            https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a-->
+            <h3><label style="font-size: 10px; color: #0f6674" for="password">Hasło</label></h3>
+            <h2><h:inputSecret value="#{registerRequest.password}" style="width: 300px" styleClass="form-control"
+                               id="password"><f:validateLength minimum="5" maximum="30"/><f:validateRegex
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret></h2>
+            <!--            https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a-->
+            <h3><label style="font-size: 10px; color: #0f6674" for="repeatpassword">Powtórz hasło</label></h3>
+            <h2><h:inputSecret value="#{registerRequest.repeatpassword}" style="width: 300px" styleClass="form-control"
+                               id="repeatpassword"><f:validateLength minimum="5" maximum="30"/><f:validateRegex
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret></h2>
+
+            <h3><label style="font-size: 10px; color: #0f6674" for="username">Nazwa użytkownika</label></h3>
+            <h2><h:inputText value="#{registerRequest.username}" style="width: 300px" styleClass="form-control"
+                             id="username"><f:validateRegex pattern="^[a-zA-Z0-9]+$"/></h:inputText></h2>
+            <!--            https://stackoverflow.com/questions/13992403/regex-validation-of-email-addresses-according-to-rfc5321-rfc5322-->
+            <h3><label style="font-size: 10px; color: #0f6674" for="email">E-mail</label></h3>
+            <h2><h:inputText value="#{registerRequest.email}" style="width: 300px" styleClass="form-control" id="email"><f:validateRegex
+                    pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/></h:inputText></h2>
+            <!--            https://stackoverflow.com/questions/19105134/regex-for-date-of-birth-->
+            <h3><label style="font-size: 10px; color: #0f6674" for="birthdate">Data urodzenia</label></h3>
+            <h2><h:inputText value="#{registerRequest.birthdate}" style="width: 300px" styleClass="form-control"
+                             id="birthdate"><f:validateRegex
+                    pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"/></h:inputText></h2>
+            <h:commandButton styleClass="btn btn-info" action="#{registerController.register}" value="Zarejestruj"
+                             style="background: #7abaff; height: 30px; width: 300px; margin-top: 20px;"/>
+        </div>
+    </h:form>
+
+
+</h:body>
+</html>

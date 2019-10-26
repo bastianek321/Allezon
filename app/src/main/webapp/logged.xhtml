@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xml:lang="en" lang="en">
+
+<h:head>
+    <title>Allezon</title>
+    <h:outputStylesheet name="bootstrap.css" library="css"/>
+</h:head>
+<h:body style="background: white">
+    <div class="container" style="height: 500px; width: 200px; margin-left: 300px;">
+        <h:form>
+            <h1 style="color: #7abaff;margin-left: 100px; font-family: Nakula, cursive; font-size: 70px;"> Allezon zalogowano </h1>
+            <h:commandButton styleClass="btn btn-info" action="#{sessionAllezon.logout}" value="Wyloguj"
+                             style="background: #7abaff; height: 50px; width: 300px; margin-left: 100px"/>
+        </h:form>
+    </div>
+</h:body>
+</html>
