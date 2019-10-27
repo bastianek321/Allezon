@@ -25,6 +25,8 @@ public class LoginController {
             String check = users.checkPassword(loginRequest.getUsername());
             if (loginRequest.getPassword().equals(check)) {
                 session.setLoggedIn(true);
+                session.setSurname(users.getSurname(loginRequest.getUsername()));
+                session.setName(users.getName(loginRequest.getUsername()));
                 System.out.println(loginRequest.getUsername() + " zalogowal sie.");
                 FacesContext context = FacesContext.getCurrentInstance();
                 HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();

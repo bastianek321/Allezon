@@ -19,13 +19,11 @@ class LoginFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
 
-        boolean isStaticResource = req.getRequestURI().startsWith("/webapp/");
+        boolean isCss = req.getRequestURI().contains(".css");
 
-        if (req.getRequestURI().contains("/login.xhtml") || req.getRequestURI().contains("/register.xhtml") || req.getRequestURI().contains("/index.xhtml") || isStaticResource) {
+        if (req.getRequestURI().contains("/login.xhtml") || req.getRequestURI().contains("/register.xhtml") || req.getRequestURI().contains("/index.xhtml") || isCss || sesyjka.isLoggedIn()) {
             chain.doFilter(req, res);
-        } else if (!sesyjka.isLoggedIn()) {
-            res.sendRedirect("login.xhtml");
-        } else chain.doFilter(req, res);
+        } else res.sendRedirect("index.xhtml");
 
         System.out.println(req.getRequestURI().contains("/login.xhtml"));
         System.out.println(req.getRequestURI().contains("/register.xhtml"));

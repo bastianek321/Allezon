@@ -3,8 +3,11 @@ package pl.pjwstk.edu.jazapp.webapp;
 import pl.pjwstk.edu.jazapp.register.RegisterRequest;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Named
 @RequestScoped
@@ -29,6 +32,13 @@ public class RegisterController {
                 User user = new User(tmpname, tmpsurname, tmppassword, tmpusername, tmpemail, tmpbirthdate);
                 users.addToDatabase(user);
                 System.out.println(tmpusername + " zarejestrowal sie.");
+                FacesContext context = FacesContext.getCurrentInstance();
+                HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
+                try {
+                    response.sendRedirect("login.xhtml");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

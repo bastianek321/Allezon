@@ -32,5 +32,23 @@ public class Users {
         return tmp;
     }
 
+    public String getName(String username){
+        for (User user : users) {
+            if(username.equals(user.getUsername())){
+                return user.getName();
+            }
+        }
+        return "Użytkownik o podanym loginie nie istnieje.";
+    }
+
+    public String getSurname(String username){
+        for (User user : users) {
+            if(username.equals(user.getUsername())){
+                return user.getSurname();
+            }
+        }
+        return "Użytkownik o podanym loginie nie istnieje.";
+    }
+
 
 }
