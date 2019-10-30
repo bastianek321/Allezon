@@ -14,19 +14,16 @@ import java.io.IOException;
 @WebFilter("*")
 class LoginFilter extends HttpFilter {
     @Inject
-    private SessionAllezon sesyjka;
+    private SessionAllezon session;
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
 
         boolean isCss = req.getRequestURI().contains(".css");
 
-        if (req.getRequestURI().contains("/login.xhtml") || req.getRequestURI().contains("/register.xhtml") || req.getRequestURI().contains("/index.xhtml") || isCss || sesyjka.isLoggedIn()) {
+        if (req.getRequestURI().contains("/login.xhtml") || req.getRequestURI().contains("/register.xhtml") || req.getRequestURI().contains("/index.xhtml") || isCss || session.isLoggedIn()) {
             chain.doFilter(req, res);
         } else res.sendRedirect("index.xhtml");
-
-        System.out.println(req.getRequestURI().contains("/login.xhtml"));
-        System.out.println(req.getRequestURI().contains("/register.xhtml"));
-
+        
     }
 }

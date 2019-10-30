@@ -20,16 +20,17 @@ public class LoginController {
     @Inject
     private SessionAllezon session;
 
+    private FacesContext context = FacesContext.getCurrentInstance();
+    private HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
+
     public void login() {
         if (users.checkIfUsernameExists(loginRequest.getUsername())) {
-            String check = users.checkPassword(loginRequest.getUsername());
-            if (loginRequest.getPassword().equals(check)) {
+            String checkPassword  = users.checkPassword(loginRequest.getUsername());
+            if (loginRequest.getPassword().equals(checkPassword)) {
                 session.setLoggedIn(true);
                 session.setSurname(users.getSurname(loginRequest.getUsername()));
                 session.setName(users.getName(loginRequest.getUsername()));
                 System.out.println(loginRequest.getUsername() + " zalogowal sie.");
-                FacesContext context = FacesContext.getCurrentInstance();
-                HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
                 try {
                     response.sendRedirect("logged.xhtml");
                 } catch (IOException e) {
@@ -38,5 +39,6 @@ public class LoginController {
 
             }
         }
+
     }
 }
