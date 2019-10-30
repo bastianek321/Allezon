@@ -22,17 +22,17 @@
                 <!--            https://stackoverflow.com/questions/2385701/regular-expression-for-first-and-last-name-->
                 <h3><label style="font-size: 10px; color: #0f6674" for="name">Name</label></h3>
                 <h2><h:inputText value="#{registerRequest.name}" style="width: 300px" styleClass="form-control"
-                                 id="name"><f:validateLength minimum="3" maximum="50"/><f:validateRegex
+                                 id="name" validatorMessage="Name should be between 3 to 50 characters and contain small and big characters."><f:validateLength minimum="3" maximum="50"/><f:validateRegex
                         pattern="^[a-zA-Z]+$"/></h:inputText></h2>
 
                 <h3><label style="font-size: 10px; color: #0f6674" for="surname">Surname</label></h3>
                 <h2><h:inputText value="#{registerRequest.surname}" style="width: 300px" styleClass="form-control"
-                                 id="surname"><f:validateLength minimum="3" maximum="50"/><f:validateRegex
+                                 id="surname" validatorMessage="Name should be between 3 to 50 characters and contain small and big characters."><f:validateLength minimum="3" maximum="50"/><f:validateRegex
                         pattern="^[a-zA-Z]+$"/></h:inputText></h2>
                 <!--            https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a-->
                 <h3><label style="font-size: 10px; color: #0f6674" for="password">Password</label></h3>
                 <h2><h:inputSecret value="#{registerRequest.password}" style="width: 300px" styleClass="form-control"
-                                   id="password"><f:validateLength minimum="5" maximum="30"/><f:validateRegex
+                                   id="password" validatorMessage="Password should be between 3 to 30 chars and contain 1 lower char, 1 upper char and 1 special char"><f:validateLength minimum="5" maximum="30"/><f:validateRegex
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret></h2>
                 <!--            https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a-->
                 <h3><label style="font-size: 10px; color: #0f6674" for="repeatpassword">Repeat password</label></h3>
@@ -43,17 +43,17 @@
 
                 <h3><label style="font-size: 10px; color: #0f6674" for="username">Username</label></h3>
                 <h2><h:inputText value="#{registerRequest.username}" style="width: 300px" styleClass="form-control"
-                                 id="username"><f:validateRegex pattern="^[a-zA-Z0-9]+$"/></h:inputText></h2>
+                                 id="username" validatorMessage="Username should contain only alphanumeric chars."><f:validateRegex pattern="^[a-zA-Z0-9]+$"/></h:inputText></h2>
                 <!--            https://stackoverflow.com/questions/13992403/regex-validation-of-email-addresses-according-to-rfc5321-rfc5322-->
                 <h3><label style="font-size: 10px; color: #0f6674" for="email">E-mail</label></h3>
                 <h2><h:inputText value="#{registerRequest.email}" style="width: 300px" styleClass="form-control"
-                                 id="email"><f:validateRegex
+                                 id="email" validatorMessage="Email shoud contain an @"><f:validateRegex
                         pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/></h:inputText></h2>
                 <!--            https://stackoverflow.com/questions/19105134/regex-for-date-of-birth-->
                 <h3><label style="font-size: 10px; color: #0f6674" for="birthdate">Date of birth(DD/MM/YYYY)</label>
                 </h3>
                 <h2><h:inputText value="#{registerRequest.birthdate}" style="width: 300px" styleClass="form-control"
-                                 id="birthdate"><f:validateRegex
+                                 id="birthdate" validatorMessage="Birth date format is DD/MM/YYYY"><f:validateRegex
                         pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"/></h:inputText></h2>
                 <h:commandButton styleClass="btn btn-info" action="#{registerController.register}" value="Register"
                                  style="background: #7abaff; height: 50px; width: 300px; margin-top: 20px;"/>
