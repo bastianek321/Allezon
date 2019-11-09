@@ -23,7 +23,8 @@ class LoginFilter extends HttpFilter {
 
         if (req.getRequestURI().contains("/login.xhtml") || req.getRequestURI().contains("/register.xhtml") || req.getRequestURI().contains("/index.xhtml") || isCss || session.isLoggedIn()) {
             chain.doFilter(req, res);
-        } else res.sendRedirect("index.xhtml");
+        }
+        else res.sendRedirect("index.xhtml");
         
     }
 }

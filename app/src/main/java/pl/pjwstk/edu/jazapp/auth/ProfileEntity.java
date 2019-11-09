@@ -1,8 +1,12 @@
-package pl.pjwstk.edu.jazapp.webapp;
+package pl.pjwstk.edu.jazapp.auth;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-// klase zostawiam do oceny lokalnego zapisu uzytkownikow, poniewaz przesiadlem sie na JPA
-public class User {
+@Entity
+@Table(name = "profile")
+public class ProfileEntity {
     private String name;
     private String surname;
     private String password;
@@ -10,7 +14,10 @@ public class User {
     private String email;
     private String birthdate;
 
-    public User(String name, String surname, String password, String username, String email, String birthdate) {
+    public ProfileEntity() {
+    }
+
+    public ProfileEntity(String name, String surname, String password, String username, String email, String birthdate) {
         this.name = name;
         this.surname = surname;
         this.password = password;
@@ -43,14 +50,6 @@ public class User {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -66,4 +65,14 @@ public class User {
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
+
+    @Id
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
 }

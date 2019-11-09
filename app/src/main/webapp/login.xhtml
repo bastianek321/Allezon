@@ -11,10 +11,13 @@
 </h:head>
 
 <h:body style="background: #ffffff">
-    <h:form>
-        <div class="container" style="margin-left:600px; margin-top: 200px;width: 400px; height: auto; border: medium">
+
+    <div class="container" style="margin-left:600px; margin-top: 200px;width: 400px; height: auto; border: medium">
+        <h:outputText value="User doesnt exist" rendered="#{loginController.userDoesntExist}"/>
+        <h:outputText value="Wrong password" rendered="#{loginController.wrongPassword}"/>
+        <h:form>
             <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
-            <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Logowanie </h1>
+            <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Logging in </h1>
             <h3><label style="font-size: 10px; color: #0f6674" for="login">Username</label></h3>
             <h2><h:inputText value="#{loginRequest.username}" style="width: 300px" styleClass="form-control"
                              id="login"/></h2>
@@ -23,11 +26,13 @@
                                id="haslo"/></h2>
             <h:commandButton styleClass="btn btn-info" action="#{loginController.login}" value="Log in"
                              style="background: #7abaff; height: 50px; width: 300px"/>
-            <h2 style="font-size: 20px; font-family: 'Nakula',serif">No account? Register!</h2>
-            <h:commandButton styleClass="btn btn-info" action="#{registerController.register}" value="Register"
-                             style="background: #7abaff; height: 50px; width: 300px"/>
-        </div>
-    </h:form>
+
+        </h:form>
+
+        <h2 style="font-size: 20px; font-family: 'Nakula',serif">No account? Register!</h2>
+        <a href="register.xhtml" class="btn btn-info" style="background: #7abaff; height: 50px; width: 300px">Register</a>
+
+    </div>
 
 
 </h:body>

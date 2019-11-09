@@ -4,6 +4,8 @@ import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// klase zostawiam do oceny lokalnego zapisu uzytkownikow, poniewaz przesiadlem sie na JPA
 @ApplicationScoped
 public class Users {
 

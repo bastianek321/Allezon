@@ -12,56 +12,81 @@
 </h:head>
 
 <h:body style="background: #ffffff">
-    <h:form id="registerform">
-        <!--        <div class="container" style="margin-left:600px; margin-top: 10px;width: 600px; height: auto; border: medium">-->
-        <div class="row">
-            <div class="col-lg-2" style="margin-left: 200px">
-                <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
-                <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Registration </h1>
 
-                <!--            https://stackoverflow.com/questions/2385701/regular-expression-for-first-and-last-name-->
-                <h3><label style="font-size: 10px; color: #0f6674" for="name">Name</label></h3>
+    <!--        <div class="container" style="margin-left:600px; margin-top: 10px;width: 600px; height: auto; border: medium">-->
+    <div class="row">
+        <div class="col-lg-2" style="margin-left: 200px">
+            <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
+            <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Registration </h1>
+
+
+
+
+            <!--            https://stackoverflow.com/questions/2385701/regular-expression-for-first-and-last-name-->
+
+            <h:form id="registerform">
+                <!--            nie wiem dlaczego nie dziala-->
+                <h:outputText value="Username already exists" rendered="#{registerController.usernameAlreadyExists}" style="font-size: 15px; color: #0f6674"/>
+                <h:outputText value="Password do not match" rendered="#{registerController.passwordsDoNotMatch}" style="font-size: 15px; color: #0f6674"/>
+                <h3><label style="font-size: 15px; color: #0f6674" for="name">Name</label></h3>
                 <h2><h:inputText value="#{registerRequest.name}" style="width: 300px" styleClass="form-control"
-                                 id="name" validatorMessage="Name should be between 3 to 50 characters and contain small and big characters."><f:validateLength minimum="3" maximum="50"/><f:validateRegex
-                        pattern="^[a-zA-Z]+$"/></h:inputText></h2>
+                                 id="name"
+                                 validatorMessage="Name should be between 3 to 50 characters and contain small and big characters."><f:validateLength
+                        minimum="3" maximum="50"/><f:validateRegex
+                        pattern="^[a-zA-Z]+$"/></h:inputText><h:message for="name" style="font-size: 10px"/></h2>
 
-                <h3><label style="font-size: 10px; color: #0f6674" for="surname">Surname</label></h3>
+                <h3><label style="font-size: 15px; color: #0f6674" for="surname">Surname</label></h3>
                 <h2><h:inputText value="#{registerRequest.surname}" style="width: 300px" styleClass="form-control"
-                                 id="surname" validatorMessage="Name should be between 3 to 50 characters and contain small and big characters."><f:validateLength minimum="3" maximum="50"/><f:validateRegex
-                        pattern="^[a-zA-Z]+$"/></h:inputText></h2>
+                                 id="surname"
+                                 validatorMessage="Surname should be between 3 to 50 characters and contain small and big characters."><f:validateLength
+                        minimum="3" maximum="50"/><f:validateRegex
+                        pattern="^[a-zA-Z]+$"/></h:inputText><h:message for="surname" style="font-size: 10px"/></h2>
                 <!--            https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a-->
-                <h3><label style="font-size: 10px; color: #0f6674" for="password">Password</label></h3>
+                <h3><label style="font-size: 15px; color: #0f6674" for="password">Password</label></h3>
                 <h2><h:inputSecret value="#{registerRequest.password}" style="width: 300px" styleClass="form-control"
-                                   id="password" validatorMessage="Password should be between 3 to 30 chars and contain 1 lower char, 1 upper char and 1 special char"><f:validateLength minimum="5" maximum="30"/><f:validateRegex
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret></h2>
+                                   id="password"
+                                   validatorMessage="Password should be between 3 to 30 chars and contain 1 lower char, 1 upper char and 1 special char"><f:validateLength
+                        minimum="5" maximum="30"/><f:validateRegex
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret><h:message
+                        for="password" style="font-size: 10px"/></h2>
                 <!--            https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a-->
-                <h3><label style="font-size: 10px; color: #0f6674" for="repeatpassword">Repeat password</label></h3>
+                <h3><label style="font-size: 15px; color: #0f6674" for="repeatpassword">Repeat password</label></h3>
                 <h2><h:inputSecret value="#{registerRequest.repeatpassword}" style="width: 300px"
                                    styleClass="form-control"
-                                   id="repeatpassword"><f:validateLength minimum="5" maximum="30"/><f:validateRegex
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret></h2>
+                                   id="repeatpassword" validatorMessage="Passwords need to be equal"><f:validateLength minimum="5" maximum="30"/><f:validateRegex
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret><h:message
+                        for="repeatpassword" style="font-size: 10px"/></h2>
 
-                <h3><label style="font-size: 10px; color: #0f6674" for="username">Username</label></h3>
+                <h3><label style="font-size: 15px; color: #0f6674" for="username">Username</label></h3>
                 <h2><h:inputText value="#{registerRequest.username}" style="width: 300px" styleClass="form-control"
-                                 id="username" validatorMessage="Username should contain only alphanumeric chars."><f:validateRegex pattern="^[a-zA-Z0-9]+$"/></h:inputText></h2>
+                                 id="username"
+                                 validatorMessage="Username should contain only alphanumeric chars."><f:validateRegex
+                        pattern="^[a-zA-Z0-9]+$"/></h:inputText><h:message for="username" style="font-size: 10px"/></h2>
                 <!--            https://stackoverflow.com/questions/13992403/regex-validation-of-email-addresses-according-to-rfc5321-rfc5322-->
-                <h3><label style="font-size: 10px; color: #0f6674" for="email">E-mail</label></h3>
+                <h3><label style="font-size: 15px; color: #0f6674" for="email">E-mail</label></h3>
                 <h2><h:inputText value="#{registerRequest.email}" style="width: 300px" styleClass="form-control"
                                  id="email" validatorMessage="Email shoud contain an @"><f:validateRegex
-                        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/></h:inputText></h2>
+                        pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]+$"/></h:inputText><h:message for="email"
+                                                                                                             style="font-size: 10px"/>
+                </h2>
                 <!--            https://stackoverflow.com/questions/19105134/regex-for-date-of-birth-->
-                <h3><label style="font-size: 10px; color: #0f6674" for="birthdate">Date of birth(DD/MM/YYYY)</label>
+                <h3><label style="font-size: 15px; color: #0f6674" for="birthdate">Date of birth(DD/MM/YYYY)</label>
                 </h3>
                 <h2><h:inputText value="#{registerRequest.birthdate}" style="width: 300px" styleClass="form-control"
                                  id="birthdate" validatorMessage="Birth date format is DD/MM/YYYY"><f:validateRegex
-                        pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"/></h:inputText></h2>
+                        pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"/></h:inputText><h:message
+                        for="birthdate" style="font-size: 10px"/></h2>
+
                 <h:commandButton styleClass="btn btn-info" action="#{registerController.register}" value="Register"
                                  style="background: #7abaff; height: 50px; width: 300px; margin-top: 20px;"/>
-                <h2 style="font-size: 20px; font-family: 'Nakula',serif">Already registered? Log in!</h2>
-                <h:commandButton styleClass="btn btn-info" action="#{loginController.login}" value="Log in"
-                                 style="background: #7abaff; height: 50px; width: 300px"/>
-            </div>
+            </h:form>
+            <h2 style="font-size: 20px; font-family: 'Nakula',serif">Already registered? Log in!</h2>
+            <a href="login.xhtml" class="btn btn-info"
+               style="background: #7abaff; height: 50px; width: 300px">Log in</a>
+
+
         </div>
-    </h:form>
+    </div>
+
 </h:body>
 </html>
