@@ -1,8 +1,15 @@
 databaseChangeLog:
   - changeSet:
-      id: 20191106_init
+      id: 20191120_init
       author: Czajkowski Sebastian
       sqlFile:
         relativeToChangelogFile: true
         splitStatements: false
-        path: 20191106_init.sql
+        path: 20191120_init.sql
+  - changeSet:
+      id: 20191119_init
+      author: Czajkowski Sebastian
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191119_init.sql

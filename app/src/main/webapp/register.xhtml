@@ -15,7 +15,7 @@
 
     <!--        <div class="container" style="margin-left:600px; margin-top: 10px;width: 600px; height: auto; border: medium">-->
     <div class="row">
-        <div class="col-lg-2" style="margin-left: 200px">
+        <div class="col-lg-2" style="margin-left: 600px">
             <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
             <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Registration </h1>
 
@@ -45,7 +45,7 @@
                 <h3><label style="font-size: 15px; color: #0f6674" for="password">Password</label></h3>
                 <h2><h:inputSecret value="#{registerRequest.password}" style="width: 300px" styleClass="form-control"
                                    id="password"
-                                   validatorMessage="Password should be between 3 to 30 chars and contain 1 lower char, 1 upper char and 1 special char"><f:validateLength
+                                   validatorMessage="Password should be between 5 to 30 chars and contain 1 lower char, 1 upper char, 1 number and 1 special char"><f:validateLength
                         minimum="5" maximum="30"/><f:validateRegex
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret><h:message
                         for="password" style="font-size: 10px"/></h2>

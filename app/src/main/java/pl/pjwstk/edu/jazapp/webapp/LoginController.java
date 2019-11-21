@@ -1,5 +1,6 @@
 package pl.pjwstk.edu.jazapp.webapp;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.pjwstk.edu.jazapp.auth.ProfileRepository;
 import pl.pjwstk.edu.jazapp.login.LoginRequest;
 
@@ -28,7 +29,8 @@ public class LoginController {
 
     public void login() {
         if (profileRepository.checkIfUserExists(loginRequest.getUsername())) {
-            if (loginRequest.getPassword().equals(profileRepository.getPassword(loginRequest.getUsername()))) {
+            var passwordEncoder = new BCryptPasswordEncoder();
+            if (passwordEncoder.matches(loginRequest.getPassword(),profileRepository.getPassword(loginRequest.getUsername()))) {
                 session.setLoggedIn(true);
                 session.setSurname(profileRepository.getSurname(loginRequest.getUsername()));
                 session.setName(profileRepository.getName(loginRequest.getUsername()));

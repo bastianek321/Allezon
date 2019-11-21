@@ -44,20 +44,6 @@ public class ProfileRepository {
         return true;
     }
 
-    @Transactional
-    public void sampleCode() {
-        var passwordEncoder = new BCryptPasswordEncoder();
-        final String rawPassword = "!Latwehaslo";
-
-        System.out.println("hashed password try 1: " + passwordEncoder.encode(rawPassword));
-        final String hashedPassword = passwordEncoder.encode(rawPassword);
-        System.out.println("hashed password try 2: " + hashedPassword);
-
-        System.out.println("Does password match?: " + passwordEncoder.matches(rawPassword, hashedPassword));
-
-        System.out.println();
-    }
-
     public String getSurname(String username) {
         return em.find(ProfileEntity.class, username).getSurname();
     }

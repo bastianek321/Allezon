@@ -1,5 +1,6 @@
 package pl.pjwstk.edu.jazapp.webapp;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.pjwstk.edu.jazapp.auth.ProfileEntity;
 import pl.pjwstk.edu.jazapp.auth.ProfileRepository;
 import pl.pjwstk.edu.jazapp.register.RegisterRequest;
@@ -9,6 +10,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 import java.io.IOException;
 
 @Named
@@ -24,11 +26,11 @@ public class RegisterController {
     private boolean usernameAlreadyExists = false;
     private boolean passwordsDoNotMatch = false;
 
-
+    @Transactional
     public void register() {
         if (!repository.checkIfUserExists(registerRequest.getUsername())) {
             if (registerRequest.getPassword().equals(registerRequest.getRepeatpassword())) {
-                ProfileEntity profile = new ProfileEntity(registerRequest.getName(), registerRequest.getSurname(), registerRequest.getPassword(), registerRequest.getUsername(), registerRequest.getEmail(), registerRequest.getBirthdate());
+                ProfileEntity profile = new ProfileEntity(registerRequest.getName(), registerRequest.getSurname(), hashPassword(), registerRequest.getUsername(), registerRequest.getEmail(), registerRequest.getBirthdate());
                 repository.addToDatabase(profile);
                 System.out.println(profile.getUsername() + " zarejestrowal sie.");
 
@@ -40,6 +42,12 @@ public class RegisterController {
             } else setPasswordsDoNotMatch(true);
 
         } else setUsernameAlreadyExists(true);
+    }
+
+    private String hashPassword(){
+        var passwordEncoder = new BCryptPasswordEncoder();
+        String rawPassword = registerRequest.getPassword();
+        return passwordEncoder.encode(rawPassword);
     }
 
     public boolean isUsernameAlreadyExists() {
