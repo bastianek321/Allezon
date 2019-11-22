@@ -1,7 +1,7 @@
-package pl.pjwstk.edu.jazapp.auction;
+package pl.pjwstk.edu.jazapp.auction.entities;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "auction")
@@ -26,10 +26,10 @@ public class Auction {
 
     @OneToMany
     @JoinColumn(name = "auctionId")
-    private List<Photos> photos;
+    private Set<Photos> photos;
 
     public Auction(){}
-    public Auction(String title, String description, float price, Category category, List<Photos> photos){
+    public Auction(String title, String description, float price, Category category, Set<Photos> photos){
         this.title = title;
         this.description = description;
         this.price = price;

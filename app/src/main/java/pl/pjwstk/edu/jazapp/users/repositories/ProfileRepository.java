@@ -1,10 +1,8 @@
-package pl.pjwstk.edu.jazapp.auth;
+package pl.pjwstk.edu.jazapp.users.repositories;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import pl.pjwstk.edu.jazapp.register.RegisterRequest;
+import pl.pjwstk.edu.jazapp.users.entities.ProfileEntity;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -23,6 +21,7 @@ public class ProfileRepository {
     }
 
     public String getUsername(String username) {
+
         String error = "This user doesnt exist";
         if (checkIfUserExists(username)) {
             return em.find(ProfileEntity.class, username).getUsername();

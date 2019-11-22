@@ -1,4 +1,4 @@
-package pl.pjwstk.edu.jazapp.auction;
+package pl.pjwstk.edu.jazapp.auction.entities;
 
 import javax.persistence.*;
 
@@ -14,7 +14,7 @@ public class Photos {
     private String path;
 
     @Column(name = "auctionId")
-    private Long auction;
+    private Auction auction;
 
 
 }

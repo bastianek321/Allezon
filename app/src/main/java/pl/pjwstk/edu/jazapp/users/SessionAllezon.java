@@ -1,4 +1,4 @@
-package pl.pjwstk.edu.jazapp.webapp;
+package pl.pjwstk.edu.jazapp.users;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;

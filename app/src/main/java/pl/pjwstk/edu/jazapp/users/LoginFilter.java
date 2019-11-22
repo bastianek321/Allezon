@@ -1,6 +1,6 @@
-package pl.pjwstk.edu.jazapp.login;
+package pl.pjwstk.edu.jazapp.users;
 
-import pl.pjwstk.edu.jazapp.webapp.SessionAllezon;
+import pl.pjwstk.edu.jazapp.users.SessionAllezon;
 
 import javax.inject.Inject;
 import javax.servlet.FilterChain;

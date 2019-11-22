@@ -1,9 +1,9 @@
-package pl.pjwstk.edu.jazapp.webapp;
+package pl.pjwstk.edu.jazapp.users.controllers;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import pl.pjwstk.edu.jazapp.auth.ProfileEntity;
-import pl.pjwstk.edu.jazapp.auth.ProfileRepository;
-import pl.pjwstk.edu.jazapp.register.RegisterRequest;
+import pl.pjwstk.edu.jazapp.users.entities.ProfileEntity;
+import pl.pjwstk.edu.jazapp.users.repositories.ProfileRepository;
+import pl.pjwstk.edu.jazapp.users.requests.RegisterRequest;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
