@@ -1,7 +1,7 @@
-package pl.pjwstk.edu.jazapp.auction.requests.add;
+package pl.pjwstk.edu.jazapp.auction.auction;
 
-import pl.pjwstk.edu.jazapp.auction.entities.Category;
-import pl.pjwstk.edu.jazapp.auction.entities.Photos;
+import pl.pjwstk.edu.jazapp.auction.category.Category;
+import pl.pjwstk.edu.jazapp.auction.photos.Photos;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

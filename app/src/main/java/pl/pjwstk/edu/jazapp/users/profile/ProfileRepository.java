@@ -1,6 +1,4 @@
-package pl.pjwstk.edu.jazapp.users.repositories;
-
-import pl.pjwstk.edu.jazapp.users.entities.ProfileEntity;
+package pl.pjwstk.edu.jazapp.users.profile;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;

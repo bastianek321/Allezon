@@ -1,4 +1,6 @@
-package pl.pjwstk.edu.jazapp.auction.entities;
+package pl.pjwstk.edu.jazapp.auction.category;
+
+import pl.pjwstk.edu.jazapp.auction.section.Section;
 
 import javax.persistence.*;
 

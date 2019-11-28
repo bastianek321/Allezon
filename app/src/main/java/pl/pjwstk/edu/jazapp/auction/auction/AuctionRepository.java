@@ -1,7 +1,5 @@
-package pl.pjwstk.edu.jazapp.auction.repositories;
+package pl.pjwstk.edu.jazapp.auction.auction;
 
-
-import pl.pjwstk.edu.jazapp.auction.entities.Auction;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;

@@ -1,8 +1,8 @@
-package pl.pjwstk.edu.jazapp.auction.requests.add;
+package pl.pjwstk.edu.jazapp.auction.auctionparameter;
 
 
-import pl.pjwstk.edu.jazapp.auction.entities.Auction;
-import pl.pjwstk.edu.jazapp.auction.entities.Parameter;
+import pl.pjwstk.edu.jazapp.auction.auction.Auction;
+import pl.pjwstk.edu.jazapp.auction.parameter.Parameter;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

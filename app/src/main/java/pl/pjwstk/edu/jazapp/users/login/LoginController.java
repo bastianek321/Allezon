@@ -1,8 +1,7 @@
-package pl.pjwstk.edu.jazapp.users.controllers;
+package pl.pjwstk.edu.jazapp.users.login;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import pl.pjwstk.edu.jazapp.users.repositories.ProfileRepository;
-import pl.pjwstk.edu.jazapp.users.requests.LoginRequest;
+import pl.pjwstk.edu.jazapp.users.profile.ProfileRepository;
 import pl.pjwstk.edu.jazapp.users.SessionAllezon;
 
 

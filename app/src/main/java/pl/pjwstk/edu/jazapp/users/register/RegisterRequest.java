@@ -1,4 +1,4 @@
-package pl.pjwstk.edu.jazapp.users.requests;
+package pl.pjwstk.edu.jazapp.users.register;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

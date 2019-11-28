@@ -1,4 +1,7 @@
-package pl.pjwstk.edu.jazapp.auction.entities;
+package pl.pjwstk.edu.jazapp.auction.auctionparameter;
+
+import pl.pjwstk.edu.jazapp.auction.auction.Auction;
+import pl.pjwstk.edu.jazapp.auction.parameter.Parameter;
 
 import javax.persistence.*;
 
@@ -12,11 +15,13 @@ public class AuctionParameter {
     @Column(name = "value")
     private String value;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @MapsId("auctionId")
     @JoinColumn(name = "auctionId",insertable = false, updatable = false)
     private Auction auction;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @MapsId("parameterId")
     @JoinColumn(name = "parameterId")
     private Parameter parameter;
 

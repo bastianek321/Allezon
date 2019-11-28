@@ -1,4 +1,4 @@
-package pl.pjwstk.edu.jazapp.users.entities;
+package pl.pjwstk.edu.jazapp.users.profile;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,4 +1,4 @@
-package pl.pjwstk.edu.jazapp.auction.controllers;
+package pl.pjwstk.edu.jazapp.auction.auction;
 
 
 
