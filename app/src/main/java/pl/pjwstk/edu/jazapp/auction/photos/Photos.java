@@ -15,7 +15,8 @@ public class Photos {
     @Column(name = "path")
     private String path;
 
-    @Column(name = "auctionId")
+    @ManyToOne
+    @JoinColumn(name = "auctionId")
     private Auction auction;
 
 

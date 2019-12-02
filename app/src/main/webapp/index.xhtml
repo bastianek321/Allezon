@@ -11,15 +11,9 @@
     <h:outputStylesheet name="bootstrap.css" library="css"/>
 </h:head>
 <h:body style="background: white">
-    <div class="container" style="height: 500px; width: 200px; margin-left: 300px;">
-        <h1 style="color: #7abaff;margin-left: 100px; font-family: Nakula, cursive; font-size: 70px;"> Allezon </h1>
-        <div class="col-sm-2">
-            <a class="btn btn-primary" href="login.xhtml"
-               style="height: 50px; width: 400px; background: #005cbf; margin-top: 20px;"><label>Log in</label></a>
-        </div>
-        <div class="col-sm-2">
-            <a class="btn btn-primary" href="register.xhtml"
-               style="height: 50px; width: 400px; background: #6f42c1; margin-top: 20px;"><label>Registration</label></a>
+    <div class="container" style="width: auto; height: 100px;">
+        <div class="row">
+            <h:link value="Log in" outcome="login.xhtml" styleClass="btn-link btn btn-info" style="size: 80px; margin-top: 10px;"/>
         </div>
     </div>
 </h:body>
