@@ -8,6 +8,7 @@ CREATE TABLE profile
     username varchar not null,
     email text not null,
     birthdate text not null,
+    admin boolean ,
 
     primary key (username)
 );

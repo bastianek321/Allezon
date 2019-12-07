@@ -7,10 +7,10 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class AddCategoryRequest {
+public class CategoryRequest {
 
     private String name;
-    private Section section;
+    private Long sectionId;
 
     public String getName() {
         return name;
@@ -20,19 +20,28 @@ public class AddCategoryRequest {
         this.name = name;
     }
 
-    public Section getSection() {
-        return section;
+//    public Section getSection() {
+//        return section;
+//    }
+//
+//    public void setSection(Section section) {
+//        this.section = section;
+//    }
+
+
+    public Long getSectionId() {
+        return sectionId;
     }
 
-    public void setSection(Section section) {
-        this.section = section;
+    public void setSectionId(Long sectionId) {
+        this.sectionId = sectionId;
     }
 
     @Override
     public String toString() {
         return "AddParameterRequest{" +
                 "name='" + name + '\'' +
-                "section=" + section + '\'' +
+                "section=" + sectionId + '\'' +
                 '}';
     }
 }
