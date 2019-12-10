@@ -9,7 +9,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class AddAuctionParameterRequest {
+public class AuctionParameterRequest {
 
     private String value;
     private Auction auction;

@@ -8,7 +8,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class AddPhotosRequest {
+public class PhotosRequest {
 
     private String path;
     private Auction auction;

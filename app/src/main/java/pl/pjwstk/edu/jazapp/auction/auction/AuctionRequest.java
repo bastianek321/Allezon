@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Named
 @RequestScoped
-public class AddAuctionRequest {
+public class AuctionRequest {
 
     private String title;
     private String description;

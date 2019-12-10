@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class AddParameterRequest {
+public class ParameterRequest {
     private String name;
 
     public String getName() {
