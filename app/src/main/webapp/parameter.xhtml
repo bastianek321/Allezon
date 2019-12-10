@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Allezon</title>
+    <h:outputStylesheet name="bootstrap.css" library="css"/>
+</h:head>
+
+<h:body style="background: #ffffff">
+
+    <div class="container" style="margin-left:600px; margin-top: 200px;width: 400px; height: auto; border: medium">
+        <h:form>
+            <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
+            <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Add parameter </h1>
+            <h3><label style="font-size: 10px; color: #0f6674" for="name">Name</label></h3>
+            <h2><h:inputText value="#{parameterRequest.name}" style="width: 300px" styleClass="form-control"
+                             id="name"/></h2>
+            <h:commandButton styleClass="btn btn-info" action="#{parameterController.add}" value="Add"
+                             style="background: #7abaff; height: 50px; width: 300px"/>
+
+        </h:form>
+    </div>
+
+
+</h:body>
+</html>

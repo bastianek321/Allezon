@@ -20,7 +20,8 @@ CREATE TABLE auction
     title       text   not null,
     description text   not null,
     price       float not null,
-    categoryId  int references category (id)
+    categoryId  int references category (id),
+    owner text references profile (username)
 );
 CREATE TABLE photos
 (

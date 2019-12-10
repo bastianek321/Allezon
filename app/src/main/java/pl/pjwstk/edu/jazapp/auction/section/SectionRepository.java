@@ -29,10 +29,14 @@ public class SectionRepository {
 
     }
 
-    public Section getSection(String name) {
+    public Section getSectionByName(String name) {
         return em.createQuery("from Section where name= :name", Section.class)
                 .setParameter("name", name)
                 .getSingleResult();
+    }
+
+    public Section getSectionById(Long id){
+        return em.find(Section.class, id);
     }
 
     public List<Section> getAllSections(){

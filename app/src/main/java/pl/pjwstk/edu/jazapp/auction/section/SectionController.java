@@ -28,7 +28,7 @@ public class SectionController{
     @Transactional
     public void edit(String name){
         if(sectionRepository.checkIfSectionExists(sectionRequest.getName())){
-            Section section = sectionRepository.getSection(sectionRequest.getName());
+            Section section = sectionRepository.getSectionByName(sectionRequest.getName());
             section.setName(name);
             sectionRepository.editSection(section);
         }

@@ -28,11 +28,15 @@ public class CategoryRepository {
         return list.isEmpty();
     }
 
-    public Category getCategory(String name) {
+    public Category getCategoryByName(String name) {
         return em.createQuery("from Category where name=:name", Category.class)
                 .setParameter("name", name)
                 .getSingleResult();
 
+    }
+
+    public Category getCategoryById(Long id){
+        return em.find(Category.class, id);
     }
 
     public Section getSectionByName(String name) {

@@ -10,6 +10,7 @@ import javax.inject.Named;
 public class CategoryRequest {
 
     private String name;
+    private Long id;
     private Long sectionId;
 
     public String getName() {
@@ -20,21 +21,20 @@ public class CategoryRequest {
         this.name = name;
     }
 
-//    public Section getSection() {
-//        return section;
-//    }
-//
-//    public void setSection(Section section) {
-//        this.section = section;
-//    }
-
-
     public Long getSectionId() {
         return sectionId;
     }
 
     public void setSectionId(Long sectionId) {
         this.sectionId = sectionId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
