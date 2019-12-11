@@ -12,9 +12,9 @@
 
 <h:body style="background: #ffffff">
 
-
+    <ui:include src="body.xhtml"/>
     <div class="row" style="height: auto;">
-        <ui:include src="body.xhtml"/>
+
         <h:form style="margin-top: 250px; margin-left: 600px;">
             <h:outputText value="User doesnt exist" rendered="#{loginController.userDoesntExist}"/>
             <h:outputText value="Wrong password" rendered="#{loginController.wrongPassword}"/>
@@ -31,7 +31,7 @@
         </h:form>
 
         <h2 style="font-size: 20px; font-family: 'Nakula',serif">No account? Register!</h2>
-        <a href="register.xhtml" class="btn btn-info" style="background: #7abaff; height: 50px; width: 300px">Register</a>
+        <a href="register.xhtml" class="btn btn-info" style="background: #721c24; height: 50px; width: 300px">Register</a>
 
     </div>
 

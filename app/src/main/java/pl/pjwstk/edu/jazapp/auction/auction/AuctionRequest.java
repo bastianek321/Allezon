@@ -1,11 +1,7 @@
 package pl.pjwstk.edu.jazapp.auction.auction;
 
-import pl.pjwstk.edu.jazapp.auction.entities.Category;
-import pl.pjwstk.edu.jazapp.auction.entities.Photo;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import java.util.Set;
 
 @Named
 @RequestScoped

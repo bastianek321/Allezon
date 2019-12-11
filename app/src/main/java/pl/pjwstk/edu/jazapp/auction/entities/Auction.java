@@ -3,7 +3,6 @@ package pl.pjwstk.edu.jazapp.auction.entities;
 import pl.pjwstk.edu.jazapp.users.profile.ProfileEntity;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "auction")

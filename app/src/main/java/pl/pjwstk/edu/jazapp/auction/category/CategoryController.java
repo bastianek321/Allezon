@@ -7,7 +7,6 @@ import pl.pjwstk.edu.jazapp.auction.entities.Section;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.transaction.Transactional;
 
 @Named
 @RequestScoped

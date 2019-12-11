@@ -10,13 +10,13 @@
     <h:outputStylesheet name="bootstrap.css" library="css"/>
 </h:head>
 <h:body style="background: white">
+
     <ui:include src="body.xhtml"/>
-    <div class="container" style="height: 500px; width: 700px; margin-left: 300px;">
-        <h:form>
-            <h1 style="color: #7abaff;margin-left: 100px; font-family: Nakula, cursive; font-size: 70px;"> Allezon</h1>
+    <div class="row" style="height: 500px; width: 700px; margin-left: 300px;">
+        <h:form style="margin-top: 200px;">
             <h2 style="color: #000000; margin-left: 150px; font-family: Nakula, cursive; font-size: 30px;">Logged in as: <h:outputText value="#{sessionAllezon.name} " /> <h:outputText value="#{sessionAllezon.surname}" /></h2>
             <h:commandButton styleClass="btn btn-info" action="#{sessionAllezon.logout}" value="Log out"
-                             style="background: #7abaff; height: 50px; width: 300px; margin-left: 150px"/>
+                             style="background: #721c24; height: 50px; width: 300px; margin-left: 150px"/>
         </h:form>
     </div>
 </h:body>

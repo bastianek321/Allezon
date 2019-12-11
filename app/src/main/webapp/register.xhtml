@@ -14,8 +14,9 @@
 <h:body style="background: #ffffff">
 
     <ui:include src="body.xhtml"/>
-    <div class="row" style="margin-top: 100px;">
-        <div class="col-lg-2" style="margin-left: 600px">
+    <div class="row">
+
+        <div class="col-lg-2" style="margin-left: 600px; margin-top: 150px;">
             <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Registration </h1>
             <!--            https://stackoverflow.com/questions/2385701/regular-expression-for-first-and-last-name-->
 
@@ -76,11 +77,11 @@
                         for="birthdate" style="font-size: 10px"/></h2>
 
                 <h:commandButton styleClass="btn btn-info" action="#{registerController.register}" value="Register"
-                                 style="background: #7abaff; height: 50px; width: 300px; margin-top: 20px;"/>
+                                 style="background: #721c24; height: 50px; width: 300px; margin-top: 20px;"/>
             </h:form>
             <h2 style="font-size: 20px; font-family: 'Nakula',serif">Already registered? Log in!</h2>
             <a href="login.xhtml" class="btn btn-info"
-               style="background: #7abaff; height: 50px; width: 300px">Log in</a>
+               style="background: #721c24; height: 50px; width: 300px">Log in</a>
 
 
         </div>

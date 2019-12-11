@@ -5,7 +5,6 @@ import pl.pjwstk.edu.jazapp.auction.entities.Auction;
 import pl.pjwstk.edu.jazapp.auction.entities.Photo;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;

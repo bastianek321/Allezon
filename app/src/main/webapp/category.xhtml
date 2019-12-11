@@ -13,10 +13,9 @@
 
 <h:body style="background: #ffffff">
     <ui:include src="body.xhtml"/>
-    <div class="container" style="margin-left:600px;width: 400px; height: auto; border: medium">
+    <div class="row" style="margin-left:600px;width: 400px; height: auto; border: medium">
         <!--        <h:outputText value="Section already exists" rendered="#{addSectionRequest}"/>-->
-        <h:form>
-            <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
+        <h:form style="margin-top: 150px">
             <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Create category </h1>
             <h3><label style="font-size: 10px; color: #0f6674" for="name">Name</label></h3>
             <h2><h:inputText value="#{categoryRequest.name}" style="width: 300px" styleClass="form-control"
@@ -24,11 +23,11 @@
             <h2><h:selectOneMenu styleClass="form-control" id="sectionlist" value="#{categoryRequest.sectionId}">
                 <f:selectItem itemLabel="Select section" itemValue=""/>
                 <f:selectItems value="#{sectionController.allSections}" var="section"
-                               itemLabel="#{section.name}" itemValue="#{section.id}" />
+                               itemLabel="#{section.name}" itemValue="#{section.id}"/>
             </h:selectOneMenu>
             </h2>
             <h:commandButton styleClass="btn btn-info" action="#{categoryController.add}" value="Add"
-                             style="background: #7abaff; height: 50px; width: 300px"/>
+                             style="background: #721c24; height: 50px; width: 300px"/>
 
         </h:form>
     </div>
