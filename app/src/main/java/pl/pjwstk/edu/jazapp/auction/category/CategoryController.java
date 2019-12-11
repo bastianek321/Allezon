@@ -1,7 +1,8 @@
 package pl.pjwstk.edu.jazapp.auction.category;
 
 
-import pl.pjwstk.edu.jazapp.auction.section.Section;
+import pl.pjwstk.edu.jazapp.auction.entities.Category;
+import pl.pjwstk.edu.jazapp.auction.entities.Section;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,7 +18,6 @@ public class CategoryController {
     @Inject
     CategoryRepository categoryRepository;
 
-    @Transactional
     public void add(){
         if(categoryRepository.checkIfCategoryExists(categoryRequest.getName())){
             Section section = categoryRepository.getSectionById(categoryRequest.getSectionId());

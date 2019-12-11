@@ -1,6 +1,8 @@
 package pl.pjwstk.edu.jazapp.auction.parameter;
 
 
+import pl.pjwstk.edu.jazapp.auction.entities.Parameter;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,7 +28,7 @@ public class ParameterRepository {
         }
     }
 
-
+    @Transactional
     public boolean checkIfParameterExists(String name){
         var list = em.createQuery("from Parameter where name= :name", Parameter.class)
                 .setParameter("name", name)
@@ -34,10 +36,12 @@ public class ParameterRepository {
         return list.isEmpty();
     }
 
+    @Transactional
     public Parameter getParameterByName(String name){
         return em.createQuery("from Parameter where name= :name", Parameter.class).setParameter("name", name).getSingleResult();
     }
 
+    @Transactional
     public Parameter getParameterById(Long id){
         return em.find(Parameter.class, id);
     }

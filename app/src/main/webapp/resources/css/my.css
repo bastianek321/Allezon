@@ -1,0 +1,8 @@
+.navigation {
+    position: relative;
+    display: grid;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}

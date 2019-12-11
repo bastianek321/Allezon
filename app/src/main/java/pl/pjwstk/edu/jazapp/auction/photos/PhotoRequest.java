@@ -1,14 +1,14 @@
 package pl.pjwstk.edu.jazapp.auction.photos;
 
 
-import pl.pjwstk.edu.jazapp.auction.auction.Auction;
+import pl.pjwstk.edu.jazapp.auction.entities.Auction;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class PhotosRequest {
+public class PhotoRequest {
 
     private String path;
     private Auction auction;

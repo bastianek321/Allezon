@@ -1,6 +1,4 @@
-package pl.pjwstk.edu.jazapp.auction.category;
-
-import pl.pjwstk.edu.jazapp.auction.section.Section;
+package pl.pjwstk.edu.jazapp.auction.entities;
 
 import javax.persistence.*;
 
@@ -18,6 +16,7 @@ public class Category {
     @ManyToOne
     @JoinColumn(name = "sectionId")
     private Section section;
+
 
     public Category(){}
     public Category(String name, Section section){

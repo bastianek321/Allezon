@@ -1,6 +1,8 @@
 package pl.pjwstk.edu.jazapp.auction.section;
 
 
+import pl.pjwstk.edu.jazapp.auction.entities.Section;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,6 +22,7 @@ public class SectionRepository {
     }
 
 
+    @Transactional
     public boolean checkIfSectionExists(String name) {
         var list = em.createQuery("from Section where name = :name", Section.class)
                 .setParameter("name", name)
@@ -29,16 +32,19 @@ public class SectionRepository {
 
     }
 
+    @Transactional
     public Section getSectionByName(String name) {
         return em.createQuery("from Section where name= :name", Section.class)
                 .setParameter("name", name)
                 .getSingleResult();
     }
 
+    @Transactional
     public Section getSectionById(Long id){
         return em.find(Section.class, id);
     }
 
+    @Transactional
     public List<Section> getAllSections(){
         return em.createQuery("from Section", Section.class)
                 .getResultList();

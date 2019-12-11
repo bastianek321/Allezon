@@ -1,12 +1,10 @@
-package pl.pjwstk.edu.jazapp.auction.photos;
-
-import pl.pjwstk.edu.jazapp.auction.auction.Auction;
+package pl.pjwstk.edu.jazapp.auction.entities;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "photos")
-public class Photos {
+public class Photo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,5 +17,9 @@ public class Photos {
     @JoinColumn(name = "auctionId")
     private Auction auction;
 
-
+    public Photo() {}
+    public Photo(String path, Auction auction){
+        this.path = path;
+        this.auction = auction;
+    }
 }

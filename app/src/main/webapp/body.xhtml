@@ -1,24 +1,27 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://xmlns.jcp.org/jsf/core" >
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <div class="row" style="width: auto; height: 100px; background: #721c24">
+    <div class="row" style="width: 100%; height: 100px; background: #721c24; position: fixed; ">
         <div class="row" style="">
             <h:link value="Log in" outcome="login.xhtml" styleClass="btn "
-                    style="size: 50px; background: #721c24; color: #d39e00; font-size: 20px; margin-left: 50px; margin-top: 20px;"/>
+                    style="size: 50px; background: #721c24; font-family: 'Nakula',serif; color: #d39e00; font-size: 20px; margin-left: 50px; margin-top: 20px;"/>
             <h:link value="Register" outcome="register.xhtml" styleClass="btn "
-                    style="size: 50px; background: #721c24; color: #d39e00; font-size: 20px; margin-left: 10px; margin-top: 20px;"/>
+                    style="size: 50px; background: #721c24; color: #d39e00;font-family: 'Nakula',serif; font-size: 20px; margin-left: 10px; margin-top: 20px;"/>
             <h:link value="Allezon" outcome="index.xhtml" styleClass="btn "
-                    style="size: 50px; background: #721c24; color: #d39e00; font-size: 50px; margin-left: 700px;"/>
+                    style="size: 50px; background: #721c24; color: #d39e00;font-family: 'Nakula',serif; font-size: 50px; margin-left: 700px;"/>
         </div>
     </div>
-    <div class="navbar" style="width: 150px; height: available; background: #721c24">
+
+    <div class="col-md-12" style="height: 100%; width: 200px; margin-top: 100px; background: #721c24; position: fixed;">
         <h:link value="Section" outcome="section.xhtml" styleClass="btn"
-                style="size: 30px; background: #721c24; color: #d39e00; font-size: 15px;"/>
+                style="size: 30px; background: #721c24; color: #d39e00;font-family: 'Nakula',serif; font-size: 25px;"/>
         <h:link value="Category" outcome="category.xhtml" styleClass="btn"
-                style="size: 30px; background: #721c24; color: #d39e00; font-size: 15px;"/>
-        <h:link value="Parameters" outcome="parameter.xhtml" styleClass="btn"
-                style="size: 30px; background: #721c24; color: #d39e00; font-size: 15px;"/>
+                style="size: 30px; background: #721c24; color: #d39e00;font-family: 'Nakula',serif; font-size: 25px;"/>
+        <h:link value="Parameter" outcome="parameter.xhtml" styleClass="btn"
+                style="size: 30px; background: #721c24; color: #d39e00;font-family: 'Nakula',serif; font-size: 25px;"/>
+        <h:link value="Auction" outcome="auction.xhtml" styleClass="btn"
+                style="size: 30px; background: #721c24; color: #d39e00; font-family: 'Nakula',serif; font-size: 25px;"/>
     </div>
 </ui:composition>

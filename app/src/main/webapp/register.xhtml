@@ -13,21 +13,17 @@
 
 <h:body style="background: #ffffff">
 
-    <!--        <div class="container" style="margin-left:600px; margin-top: 10px;width: 600px; height: auto; border: medium">-->
-    <div class="row">
+    <ui:include src="body.xhtml"/>
+    <div class="row" style="margin-top: 100px;">
         <div class="col-lg-2" style="margin-left: 600px">
-            <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
             <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Registration </h1>
-
-
-
-
             <!--            https://stackoverflow.com/questions/2385701/regular-expression-for-first-and-last-name-->
 
             <h:form id="registerform">
-                <!--            nie wiem dlaczego nie dziala-->
-                <h:outputText value="Username already exists" rendered="#{registerController.usernameAlreadyExists}" style="font-size: 15px; color: #0f6674"/>
-                <h:outputText value="Password do not match" rendered="#{registerController.passwordsDoNotMatch}" style="font-size: 15px; color: #0f6674"/>
+                <h:outputText value="Username already exists" rendered="#{registerController.usernameAlreadyExists}"
+                              style="font-size: 15px; color: #0f6674"/>
+                <h:outputText value="Password do not match" rendered="#{registerController.passwordsDoNotMatch}"
+                              style="font-size: 15px; color: #0f6674"/>
                 <h3><label style="font-size: 15px; color: #0f6674" for="name">Name</label></h3>
                 <h2><h:inputText value="#{registerRequest.name}" style="width: 300px" styleClass="form-control"
                                  id="name"
@@ -53,7 +49,8 @@
                 <h3><label style="font-size: 15px; color: #0f6674" for="repeatpassword">Repeat password</label></h3>
                 <h2><h:inputSecret value="#{registerRequest.repeatpassword}" style="width: 300px"
                                    styleClass="form-control"
-                                   id="repeatpassword" validatorMessage="Passwords need to be equal"><f:validateLength minimum="5" maximum="30"/><f:validateRegex
+                                   id="repeatpassword" validatorMessage="Passwords need to be equal"><f:validateLength
+                        minimum="5" maximum="30"/><f:validateRegex
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*#?]+$"/></h:inputSecret><h:message
                         for="repeatpassword" style="font-size: 10px"/></h2>
 
@@ -66,8 +63,9 @@
                 <h3><label style="font-size: 15px; color: #0f6674" for="email">E-mail</label></h3>
                 <h2><h:inputText value="#{registerRequest.email}" style="width: 300px" styleClass="form-control"
                                  id="email" validatorMessage="Email shoud contain an @"><f:validateRegex
-                        pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]+$"/></h:inputText><h:message for="email"
-                                                                                                             style="font-size: 10px"/>
+                        pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]+$"/></h:inputText><h:message
+                        for="email"
+                        style="font-size: 10px"/>
                 </h2>
                 <!--            https://stackoverflow.com/questions/19105134/regex-for-date-of-birth-->
                 <h3><label style="font-size: 15px; color: #0f6674" for="birthdate">Date of birth(DD/MM/YYYY)</label>

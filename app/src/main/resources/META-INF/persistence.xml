@@ -19,6 +19,7 @@
             <property name="hibernate.hikari.username" value="jazapp"/>
             <property name="hibernate.hikari.password" value="jazapp!98"/>
 
+
         </properties>
     </persistence-unit>
 </persistence>

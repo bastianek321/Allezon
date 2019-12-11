@@ -1,7 +1,8 @@
 package pl.pjwstk.edu.jazapp.auction.category;
 
 
-import pl.pjwstk.edu.jazapp.auction.section.Section;
+import pl.pjwstk.edu.jazapp.auction.entities.Category;
+import pl.pjwstk.edu.jazapp.auction.entities.Section;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -21,6 +22,7 @@ public class CategoryRepository {
         }
     }
 
+    @Transactional
     public boolean checkIfCategoryExists(String name) {
         var list = em.createQuery("from Category where name= :name", Category.class)
                 .setParameter("name", name)
@@ -28,6 +30,7 @@ public class CategoryRepository {
         return list.isEmpty();
     }
 
+    @Transactional
     public Category getCategoryByName(String name) {
         return em.createQuery("from Category where name=:name", Category.class)
                 .setParameter("name", name)
@@ -35,16 +38,19 @@ public class CategoryRepository {
 
     }
 
+    @Transactional
     public Category getCategoryById(Long id){
         return em.find(Category.class, id);
     }
 
+    @Transactional
     public Section getSectionByName(String name) {
         return em.createQuery("from Section where name= :name", Section.class)
                 .setParameter("name", name)
                 .getSingleResult();
     }
 
+    @Transactional
     public Section getSectionById(Long id){
         return em.createQuery("from Section where id = :id", Section.class)
                 .setParameter("id", id)

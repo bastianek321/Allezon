@@ -1,7 +1,7 @@
 package pl.pjwstk.edu.jazapp.auction.auction;
 
-import pl.pjwstk.edu.jazapp.auction.category.Category;
-import pl.pjwstk.edu.jazapp.auction.photos.Photos;
+import pl.pjwstk.edu.jazapp.auction.entities.Category;
+import pl.pjwstk.edu.jazapp.auction.entities.Photo;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -14,8 +14,9 @@ public class AuctionRequest {
     private String title;
     private String description;
     private float price;
-    private Category category;
-    private Set<Photos> photos;
+    private Long categoryId;
+    private String owner;
+    //private Set<Photo> photos;
 
     public String getTitle() {
         return title;
@@ -41,29 +42,39 @@ public class AuctionRequest {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public Set<Photos> getPhotos() {
-        return photos;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setPhotos(Set<Photos> photos) {
-        this.photos = photos;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
+
+    //    public Set<Photo> getPhotos() {
+//        return photos;
+//    }
+//
+//    public void setPhotos(Set<Photo> photos) {
+//        this.photos = photos;
+//    }
+//
     @Override
     public String toString() {
         return "AddAuctionRequest{" +
                 "title='" + title + '\'' +
                 "description='" + description + '\'' +
                 "price='" + price + '\'' +
-                "category='" + category + '\'' +
-                "photos='" + photos + '\'' +
+                "category='" + categoryId + '\'' +
+                "owner='" + owner + '\'' +
+                //"photos='" + photos + '\'' +
                 '}';
     }
 }

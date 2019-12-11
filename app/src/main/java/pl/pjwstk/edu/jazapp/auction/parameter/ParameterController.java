@@ -1,6 +1,8 @@
 package pl.pjwstk.edu.jazapp.auction.parameter;
 
 
+import pl.pjwstk.edu.jazapp.auction.entities.Parameter;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -16,7 +18,7 @@ public class ParameterController {
     @Inject
     ParameterRepository parameterRepository;
 
-    @Transactional
+
     public void add(){
         if(parameterRepository.checkIfParameterExists(parameterRequest.getName())){
             Parameter parameter = new Parameter(parameterRequest.getName());
@@ -26,7 +28,6 @@ public class ParameterController {
         else System.out.println("Error adding parameter "+parameterRequest.getName());
     }
 
-    @Transactional
     public void edit(){
         if(parameterRepository.checkIfParameterExists(parameterRequest.getName())){
             Parameter parameter = parameterRepository.getParameterById(parameterRequest.getId());

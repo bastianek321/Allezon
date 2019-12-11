@@ -1,7 +1,6 @@
-package pl.pjwstk.edu.jazapp.auction.auctionparameter;
+package pl.pjwstk.edu.jazapp.auction.entities;
 
-import pl.pjwstk.edu.jazapp.auction.auction.Auction;
-import pl.pjwstk.edu.jazapp.auction.parameter.Parameter;
+import pl.pjwstk.edu.jazapp.auction.auctionparameter.AuctionParameterId;
 
 import javax.persistence.*;
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Allezon</title>
+    <h:outputStylesheet name="bootstrap.css" library="css"/>
+</h:head>
+
+<h:body style="background: #ffffff">
+
+    <ui:include src="body.xhtml"/>
+    <div class="container" style="margin-left:600px; width: 400px; height: auto; border: medium">
+        <h:form>
+            <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
+            <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Add auction </h1>
+            <h3><label style="font-size: 10px; color: #0f6674" for="title">Title</label></h3>
+            <h2><h:inputText value="#{auctionRequest.title}" style="width: 300px" styleClass="form-control"
+                             id="title"/></h2>
+            <h3><label for="description"> Description </label></h3>
+            <h2><h:inputText value="#{auctionRequest.description}" style="width: 300px" styleClass="form-control"
+                             id="description"/></h2>
+            <h3><label for="price">Price</label></h3>
+            <h2><h:inputText value="#{auctionRequest.price}" style="width: 300px" styleClass="form-control" id="price"/>
+            </h2>
+            <h3><label for="categorylist">Choose category</label></h3>
+            <h2><h:selectOneMenu styleClass="form-control" id="categorylist" value="#{auctionRequest.categoryId}">
+                <f:selectItem itemLabel="Select category" itemValue=""/>
+                <f:selectItems value="#{auctionController.allCategories}" var="category"
+                               itemLabel="#{category.name}" itemValue="#{category.id}"/>
+            </h:selectOneMenu>
+            </h2>
+            <h3><label for="owner"/></h3>
+            <h2><h:inputText value="#{auctionRequest.owner}" style="width: 300px" styleClass="form-control" id="owner"/>
+            </h2>
+
+            <h:commandButton styleClass="btn btn-info" action="#{auctionController.add}" value="Add"
+                             style="background: #7abaff; height: 50px; width: 300px"/>
+
+        </h:form>
+    </div>
+
+
+</h:body>
+</html>

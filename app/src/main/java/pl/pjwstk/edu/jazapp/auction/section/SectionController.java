@@ -1,6 +1,8 @@
 package pl.pjwstk.edu.jazapp.auction.section;
 
 
+import pl.pjwstk.edu.jazapp.auction.entities.Section;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -15,7 +17,6 @@ public class SectionController{
     @Inject
     SectionRepository sectionRepository;
 
-    @Transactional
     public void add(){
         if(sectionRepository.checkIfSectionExists(sectionRequest.getName())){
             Section section = new Section(sectionRequest.getName());
@@ -25,7 +26,6 @@ public class SectionController{
         else System.out.println("Failed to create section "+sectionRequest.getName());
     }
 
-    @Transactional
     public void edit(String name){
         if(sectionRepository.checkIfSectionExists(sectionRequest.getName())){
             Section section = sectionRepository.getSectionByName(sectionRequest.getName());

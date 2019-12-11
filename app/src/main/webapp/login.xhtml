@@ -12,11 +12,12 @@
 
 <h:body style="background: #ffffff">
 
-    <div class="container" style="margin-left:600px; margin-top: 200px;width: 400px; height: auto; border: medium">
-        <h:outputText value="User doesnt exist" rendered="#{loginController.userDoesntExist}"/>
-        <h:outputText value="Wrong password" rendered="#{loginController.wrongPassword}"/>
-        <h:form>
-            <h1 style="font-family: 'Fira Code',cursive; color: #7abaff; font-size: 50px;">Allezon</h1>
+
+    <div class="row" style="height: auto;">
+        <ui:include src="body.xhtml"/>
+        <h:form style="margin-top: 250px; margin-left: 600px;">
+            <h:outputText value="User doesnt exist" rendered="#{loginController.userDoesntExist}"/>
+            <h:outputText value="Wrong password" rendered="#{loginController.wrongPassword}"/>
             <h1 style="font-size: 30px; font-family: 'Nakula',serif"> Logging in </h1>
             <h3><label style="font-size: 10px; color: #0f6674" for="login">Username</label></h3>
             <h2><h:inputText value="#{loginRequest.username}" style="width: 300px" styleClass="form-control"
@@ -25,7 +26,7 @@
             <h2><h:inputSecret value="#{loginRequest.password}" style="width: 300px" styleClass="form-control"
                                id="haslo"/></h2>
             <h:commandButton styleClass="btn btn-info" action="#{loginController.login}" value="Log in"
-                             style="background: #7abaff; height: 50px; width: 300px"/>
+                             style="background: #721c24; height: 50px; width: 300px"/>
 
         </h:form>
 

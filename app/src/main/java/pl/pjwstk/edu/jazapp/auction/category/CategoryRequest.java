@@ -1,7 +1,5 @@
 package pl.pjwstk.edu.jazapp.auction.category;
 
-import pl.pjwstk.edu.jazapp.auction.section.Section;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
