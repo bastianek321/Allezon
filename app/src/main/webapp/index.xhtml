@@ -16,14 +16,14 @@
 
     <div class="row">
         <ui:include src="body.xhtml"/>
-            <div class="row" style="margin-top: 100px; margin-left: 50px;">
+            <div class="row" style="margin-top: 100px; margin-left: 200px; border-collapse: collapse;">
                 <c:forEach items="#{auctionController.allAuctions}" var="auction">
-                <div class="col-2" style=" border: 10px #000000;margin-top: 20px; margin-left: 150px">
-                    <div class="row"><h:outputText value="#{auction.id}"/></div>
-                    <div class="row"><h:outputText value="#{auction.category.name}"/></div>
-                    <div class="row"><h:outputText value="#{auction.price}"/></div>
-                    <div class="row"><h:outputText value="#{auction.description}"/></div>
+                <div class="col-2" style=" border: medium #000000 ;margin-top: 20px; margin-left: 10px; height: 300px; width: 2500px;">
+                    <div class="row"><h:outputText value="ID: #{auction.id}"/></div>
+                    <div class="row"><h:outputText value="Category: #{auction.category.name}"/></div>
                     <div class="row"><h:outputText value="#{auction.title}"/></div>
+                    <div class="row"><h:outputText value="#{auction.description}"/></div>
+                    <div class="row"><h:outputText value="Price: #{auction.price}"/></div>
                 </div>
                 </c:forEach>
             </div>
