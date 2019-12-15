@@ -3,6 +3,7 @@ package pl.pjwstk.edu.jazapp.auction.entities;
 import pl.pjwstk.edu.jazapp.users.profile.ProfileEntity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "auction")
@@ -25,13 +26,22 @@ public class Auction {
     @JoinColumn(name = "categoryId")
     private Category category;
 
-//    @OneToMany
-//    @JoinColumn(name = "auctionId")
-//    private Set<Photo> photos;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "auctionId")
+    private List<Photo> photos;
 
     @ManyToOne
     @JoinColumn(name = "owner")
     private ProfileEntity owner;
+
+    public Auction(){}
+    public Auction(String title, String description, float price, Category category ,ProfileEntity owner){
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.owner = owner;
+    }
 
     public Long getId() {
         return id;
@@ -73,21 +83,21 @@ public class Auction {
         this.category = category;
     }
 
-//    public Set<Photo> getPhotos() {
-//        return photos;
-//    }
-//
-//    public void setPhotos(Set<Photo> photos) {
-//        this.photos = photos;
-//    }
-
-    public Auction(){}
-    public Auction(String title, String description, float price, Category category, ProfileEntity owner){
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.category = category;
-        this.owner = owner;
-       // this.photos = photos;
+    public List<Photo> getPhotos() {
+        return photos;
     }
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
+    }
+
+    public ProfileEntity getOwner() {
+        return owner;
+    }
+
+    public void setOwner(ProfileEntity owner) {
+        this.owner = owner;
+    }
+
+
 }

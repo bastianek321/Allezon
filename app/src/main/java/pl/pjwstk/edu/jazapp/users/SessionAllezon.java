@@ -1,5 +1,7 @@
 package pl.pjwstk.edu.jazapp.users;
 
+import pl.pjwstk.edu.jazapp.users.profile.ProfileEntity;
+
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -11,8 +13,8 @@ import java.io.Serializable;
 @SessionScoped
 public class SessionAllezon implements Serializable {
     private boolean loggedIn = false;
-    private String name;
-    private String surname;
+    private ProfileEntity profile;
+    private boolean admin = false;
 
     public boolean isLoggedIn() {
         return loggedIn;
@@ -22,31 +24,22 @@ public class SessionAllezon implements Serializable {
         this.loggedIn = loggedIn;
     }
 
-    public String getName() {
-        return name;
+    public ProfileEntity getProfile() {
+        return profile;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProfile(ProfileEntity profile) {
+        this.profile = profile;
     }
 
-    public String getSurname() {
-        return surname;
+    public boolean isAdmin() {
+        return this.admin;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
-    public void logout() {
-        loggedIn = false;
-        FacesContext context = FacesContext.getCurrentInstance();
-        HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
-        try {
-            response.sendRedirect("index.xhtml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
 }

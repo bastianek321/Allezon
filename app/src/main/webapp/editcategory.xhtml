@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Allezon</title>
+    <h:outputStylesheet name="bootstrap.css" library="css"/>
+</h:head>
+
+<h:body style="background: #ffffff">
+    <div class="row">
+
+        <ui:include src="body.xhtml"/>
+        <div class="row" style="margin-left:600px;width: 400px; height: auto;">
+            <h:form style="margin-top: 200px;">
+                <h3><label for="categorylist">Choose category to edit</label></h3>
+                <h2><h:selectOneMenu styleClass="form-control" id="categorylist" value="#{categoryRequest.id}"
+                                     style="width: 100px;">
+                    <f:selectItem itemLabel="Select section" itemValue=""/>
+                    <f:selectItems value="#{auctionCreatorService.allCategories}" var="category"
+                                   itemLabel="#{category.name}" itemValue="#{category.id}"/>
+                </h:selectOneMenu>
+                </h2>
+                <h3><h:outputText value="New name"/> <h:inputText value="#{categoryRequest.name}"/></h3>
+
+                <h:commandButton styleClass="btn btn-info" action="#{categoryController.edit}" value="Edit"
+                                 style="background: #721c24; height: 50px; width: 300px"/>
+            </h:form>
+        </div>
+    </div>
+
+
+</h:body>
+</html>

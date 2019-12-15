@@ -28,22 +28,41 @@ public class LoginController {
     private boolean wrongPassword;
 
     public void login() {
+
+        session.setAdmin(false);
+        session.setLoggedIn(false);
         if (profileRepository.checkIfUserExists(loginRequest.getUsername())) {
             var passwordEncoder = new BCryptPasswordEncoder();
-            if (passwordEncoder.matches(loginRequest.getPassword(),profileRepository.getPassword(loginRequest.getUsername()))) {
+            if (passwordEncoder.matches(loginRequest.getPassword(), profileRepository.getPassword(loginRequest.getUsername()))) {
                 session.setLoggedIn(true);
-                session.setSurname(profileRepository.getSurname(loginRequest.getUsername()));
-                session.setName(profileRepository.getName(loginRequest.getUsername()));
+                session.setProfile(profileRepository.getUser(loginRequest.getUsername()));
                 System.out.println(loginRequest.getUsername() + " zalogowal sie.");
                 try {
                     response.sendRedirect("logged.xhtml");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                if (profileRepository.isAdmin(session.getProfile().getUsername())) {
+                    session.setAdmin(true);
+                }
 
             } else setWrongPassword(true);
 
         } else setUserDoesntExist(true);
+    }
+
+    public void logout() {
+        session.setAdmin(false);
+        session.setLoggedIn(false);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
+        try {
+            response.sendRedirect("index.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public boolean isUserDoesntExist() {

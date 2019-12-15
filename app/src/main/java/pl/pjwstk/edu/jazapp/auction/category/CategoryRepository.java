@@ -8,6 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @ApplicationScoped
 public class CategoryRepository {
@@ -20,6 +21,21 @@ public class CategoryRepository {
         if (checkIfCategoryExists(category.getName())) {
             em.persist(category);
         }
+    }
+
+    @Transactional
+    public void editCategory(Category category){
+        if(checkIfCategoryExists(category.getName())){
+            em.merge(category);
+        }
+    }
+
+    @Transactional
+    public List<Category> getAllCategories(){return em.createQuery("from Category ", Category.class).getResultList();}
+
+    @Transactional
+    public List<Category> getCategoriesBySectionId(Long id){
+        return em.createQuery("from Category where section.id = :id", Category.class).setParameter("id", id).getResultList();
     }
 
     @Transactional

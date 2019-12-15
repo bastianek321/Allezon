@@ -14,9 +14,9 @@
     <ui:include src="body.xhtml"/>
     <div class="row" style="height: 500px; width: 700px; margin-left: 300px;">
         <h:form style="margin-top: 200px;">
-            <h2 style="color: #000000; margin-left: 150px; font-family: Nakula, cursive; font-size: 30px;">Logged in as: <h:outputText value="#{sessionAllezon.name} " /> <h:outputText value="#{sessionAllezon.surname}" /></h2>
-            <h:commandButton styleClass="btn btn-info" action="#{sessionAllezon.logout}" value="Log out"
-                             style="background: #721c24; height: 50px; width: 300px; margin-left: 150px"/>
+            <h2 style="color: #000000; margin-left: 150px; font-family: Nakula, cursive; font-size: 30px;">Logged in as:
+                <h:outputText value="#{sessionAllezon.profile.name} "/> <h:outputText
+                        value="#{sessionAllezon.profile.surname}"/></h2>
         </h:form>
     </div>
 </h:body>

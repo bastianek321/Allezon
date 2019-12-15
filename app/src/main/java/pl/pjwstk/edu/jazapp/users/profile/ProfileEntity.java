@@ -13,6 +13,7 @@ public class ProfileEntity {
     private String username;
     private String email;
     private String birthdate;
+    private Boolean admin;
 
     public ProfileEntity() {
     }
@@ -24,6 +25,7 @@ public class ProfileEntity {
         this.username = username;
         this.email = email;
         this.birthdate = birthdate;
+        this.admin = false;
     }
 
     public String getName() {
@@ -64,6 +66,14 @@ public class ProfileEntity {
 
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public boolean isAdmin() {
+        return this.admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 
     @Id

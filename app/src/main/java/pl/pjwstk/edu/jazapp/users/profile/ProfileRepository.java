@@ -18,6 +18,12 @@ public class ProfileRepository {
         }
     }
 
+    @Transactional
+    public ProfileEntity getUser(String username) {
+        return em.find(ProfileEntity.class, username);
+    }
+
+    @Transactional
     public String getUsername(String username) {
 
         String error = "This user doesnt exist";
@@ -26,6 +32,12 @@ public class ProfileRepository {
         } else return error;
     }
 
+    @Transactional
+    public boolean isAdmin(String username){
+        return em.find(ProfileEntity.class, username).isAdmin();
+    }
+
+    @Transactional
     public String getPassword(String username) {
         String error = "This user doesnt exist";
         if (checkIfUserExists(username)) {
@@ -33,19 +45,12 @@ public class ProfileRepository {
         } else return error;
     }
 
+    @Transactional
     public boolean checkIfUserExists(String username) {
         ProfileEntity tmp = em.find(ProfileEntity.class, username);
-        if(tmp == null){
+        if (tmp == null) {
             return false;
         }
         return true;
-    }
-
-    public String getSurname(String username) {
-        return em.find(ProfileEntity.class, username).getSurname();
-    }
-
-    public String getName(String username) {
-        return em.find(ProfileEntity.class, username).getName();
     }
 }

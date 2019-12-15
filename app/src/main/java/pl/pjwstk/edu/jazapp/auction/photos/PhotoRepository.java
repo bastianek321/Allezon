@@ -8,6 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @ApplicationScoped
 public class PhotoRepository {
@@ -34,7 +35,7 @@ public class PhotoRepository {
     }
 
     @Transactional
-    public Auction getAuctionById(Long id){
-        return em.find(Auction.class, id);
+    public String getPhotoByAuction(Long id){
+        return em.createQuery("select Photo .path from Photo where auction.id = :id", String.class).setParameter("id", id).getSingleResult();
     }
 }

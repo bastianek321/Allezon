@@ -1,6 +1,7 @@
 package pl.pjwstk.edu.jazapp.users.register;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import pl.pjwstk.edu.jazapp.users.SessionAllezon;
 import pl.pjwstk.edu.jazapp.users.profile.ProfileEntity;
 import pl.pjwstk.edu.jazapp.users.profile.ProfileRepository;
 
@@ -19,6 +20,8 @@ public class RegisterController {
     private RegisterRequest registerRequest;
     @Inject
     private ProfileRepository repository;
+    @Inject
+    private SessionAllezon sessionAllezon;
 
     private FacesContext context = FacesContext.getCurrentInstance();
     private HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
@@ -27,6 +30,8 @@ public class RegisterController {
 
     @Transactional
     public void register() {
+        sessionAllezon.setAdmin(false);
+        sessionAllezon.setLoggedIn(false);
         if (!repository.checkIfUserExists(registerRequest.getUsername())) {
             if (registerRequest.getPassword().equals(registerRequest.getRepeatpassword())) {
                 ProfileEntity profile = new ProfileEntity(registerRequest.getName(), registerRequest.getSurname(), hashPassword(), registerRequest.getUsername(), registerRequest.getEmail(), registerRequest.getBirthdate());

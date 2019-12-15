@@ -27,4 +27,13 @@ public class CategoryController {
         else System.out.println("Error adding category "+ categoryRequest.getName());
     }
 
+    public void edit(){
+        if(categoryRepository.checkIfCategoryExists(categoryRequest.getName())){
+            Category category = categoryRepository.getCategoryById(categoryRequest.getId());
+            category.setName(categoryRequest.getName());
+            categoryRepository.editCategory(category);
+        }
+
+    }
+
 }

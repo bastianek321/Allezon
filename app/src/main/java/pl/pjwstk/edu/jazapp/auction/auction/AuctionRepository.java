@@ -23,11 +23,10 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public Category getCategoryByName(String name){
-        return em.createQuery("from Category where name=:name", Category.class)
-                .setParameter("name", name)
-                .getSingleResult();
-    }
+    public void editAuction(Auction auction) {em.merge(auction);}
+
+    @Transactional
+    public Auction getAuctionById(Long id) { return em.find(Auction.class, id);}
 
     @Transactional
     public Category getCategoryById(Long id){
@@ -35,13 +34,10 @@ public class AuctionRepository {
     }
 
     @Transactional
-    public ProfileEntity getOwner(String username){
-        return  em.find(ProfileEntity.class, username);
-    }
-
-    @Transactional
-    public List<Category> getAllCategories(){
-        return em.createQuery("from Category ", Category.class).getResultList();
+    public List<Auction> getAuctionsByUser(String user){
+        ProfileEntity profile = em.find(ProfileEntity.class, user);
+        return em.createQuery("from Auction where owner= :user", Auction.class)
+            .setParameter("user", profile).getResultList();
     }
 
     @Transactional

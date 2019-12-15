@@ -25,10 +25,10 @@ public class SectionController{
         else System.out.println("Failed to create section "+sectionRequest.getName());
     }
 
-    public void edit(String name){
+    public void edit(){
         if(sectionRepository.checkIfSectionExists(sectionRequest.getName())){
-            Section section = sectionRepository.getSectionByName(sectionRequest.getName());
-            section.setName(name);
+            Section section = sectionRepository.getSectionById(sectionRequest.getId());
+            section.setName(sectionRequest.getName());
             sectionRepository.editSection(section);
         }
 
