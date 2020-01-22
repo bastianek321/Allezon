@@ -3,14 +3,10 @@ package pl.pjwstk.edu.jazapp.auction.auction;
 import pl.pjwstk.edu.jazapp.auction.entities.Auction;
 import pl.pjwstk.edu.jazapp.auction.entities.Photo;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@Named
-@RequestScoped
-public class AuctionRequest {
+public class AuctionEditRequest {
 
     private Long id;
     private String title;
@@ -21,8 +17,19 @@ public class AuctionRequest {
     private String owner;
     private List<Photo> photos = new ArrayList<>();
 
-    public AuctionRequest() {
-        photos.add(new Photo());
+    public AuctionEditRequest() {
+    }
+
+    public AuctionEditRequest(Auction auction){
+        this.id = auction.getId();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -57,14 +64,6 @@ public class AuctionRequest {
         this.categoryId = categoryId;
     }
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
     public Long getSectionId() {
         return sectionId;
     }
@@ -73,14 +72,13 @@ public class AuctionRequest {
         this.sectionId = sectionId;
     }
 
-    public Long getId() {
-        return id;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
-
 
     public List<Photo> getPhotos() {
         return photos;
@@ -89,17 +87,4 @@ public class AuctionRequest {
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
     }
-
-    @Override
-    public String toString() {
-        return "AddAuctionRequest{" +
-                "title='" + title + '\'' +
-                "description='" + description + '\'' +
-                "price='" + price + '\'' +
-                "category='" + categoryId + '\'' +
-                "owner='" + owner + '\'' +
-                //"photos='" + photos + '\'' +
-                '}';
-    }
-
 }

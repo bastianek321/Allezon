@@ -20,8 +20,7 @@ public class AuctionController {
     AuctionRequest auctionRequest;
     @Inject
     AuctionRepository auctionRepository;
-    @Inject
-    ParamRetriever paramRetriever;
+
 
 
     public void add(){
@@ -37,12 +36,5 @@ public class AuctionController {
 
     public List<Auction> getMyAuctions() {return  auctionRepository.getAuctionsByUser(creatorService.getOwner().getUsername());}
 
-    public Auction getAuction() {
-        if(paramRetriever.contains("auction")){
-            return auctionRepository.getAuctionById(paramRetriever.getLong("auction"));
-        }
-        else return null;
-
-    }
 
 }

@@ -13,7 +13,7 @@ public class ParamRetriever {
         return request.getParameter(paramKey) != null;
     }
 
-    public Long getLong(String paramKey) {
+    public Long getLong(String paramKey) throws NumberFormatException {
         var paramValue = request.getParameter(paramKey);
         return Long.parseLong(paramValue);
     }
