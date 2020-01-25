@@ -32,6 +32,10 @@ public class AuctionCreatorService {
 
     public void addPhoto(Photo photo) {photoRepository.addToDatabase(photo);}
 
+    public void editPhoto(final Photo photo){photoRepository.editPhoto(photo);}
+
+    public Photo getPhotoByAuction(Long id){return photoRepository.getPhotoByAuction(id);}
+
     public List<Category> getAllCategories(){
         return categoryRepository.getAllCategories();
     }

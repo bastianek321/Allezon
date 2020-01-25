@@ -16,17 +16,18 @@
 
     <div class="row">
         <ui:include src="body.xhtml"/>
-        <div class="row" style="margin-top: 100px; margin-left: 250px; border-collapse: collapse; width: 87%%;">
+        <div class="row" style="margin-top: 100px; margin-left: 250px; border-collapse: collapse; width: 87%;">
             <c:forEach items="#{auctionController.myAuctions}" var="auction">
-                <div class="col-2" style=" border: 1px solid black ;margin-top: 20px; margin-left: 10px; height: 400px; width: 2000px;">
+                <h:link class="col-2" style=" border: 1px solid black ;margin-top: 20px; margin-left: 10px; height: 400px; width: 2000px;" outcome="showauction.xhtml">
+                    <f:param name="auction" value="#{auction.id}" />
                     <div class="row"><h:graphicImage value="#{auction.photos.get(0).path}" styleClass="row" style="margin-top: 10px;margin-left: 20px; width: 200px; height: 200px;"/></div>
                     <div class="row"><h:outputText value="ID: #{auction.id}"/></div>
                     <div class="row"><h:outputText value="Category: #{auction.category.name}"/></div>
                     <div class="row"><h:outputText value="#{auction.title}"/></div>
-                    <div class="row"><h:outputText value="Description: #{auction.description}"/></div>
                     <div class="row"><h:outputText value="Price: #{auction.price}"/></div>
 
-                </div>
+                </h:link>
+
             </c:forEach>
         </div>
     </div>

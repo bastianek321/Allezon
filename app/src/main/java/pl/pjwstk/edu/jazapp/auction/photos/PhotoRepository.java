@@ -23,6 +23,9 @@ public class PhotoRepository {
     }
 
     @Transactional
+    public void editPhoto(Photo photo){em.merge(photo);}
+
+    @Transactional
     public Photo getPhotoById(Long id){
         return em.find(Photo.class, id);
     }
@@ -35,7 +38,7 @@ public class PhotoRepository {
     }
 
     @Transactional
-    public String getPhotoByAuction(Long id){
-        return em.createQuery("select Photo .path from Photo where auction.id = :id", String.class).setParameter("id", id).getSingleResult();
+    public Photo getPhotoByAuction(Long id){
+        return em.createQuery("from Photo where auction.id = :id", Photo.class).setParameter("id", id).getSingleResult();
     }
 }

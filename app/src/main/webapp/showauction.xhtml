@@ -17,21 +17,25 @@
         <div class="row"
              style="margin-top: 100px; margin-left: 250px; border-collapse: collapse; width: 87%; z-index: 1;">
 
-            <ui:param name="auction" value="#{auctionEditController.getAuctionById()}"/>
-                <div class="col-2"
-                     style=" border: 1px solid black ;margin-top: 20px; margin-left: 10px; height: 400px; width: 2000px;"
-                >
-                    <div class="row"><h:graphicImage value="#{auctionEditController.getAuctionById().photos.get(0).path}" styleClass="row"
-                                                     style="margin-top: 10px;margin-left: 20px; width: 200px; height: 200px;"/>
-                    </div>
-                    <div class="row"><h:outputText value="ID: #{auction.id}"/></div>
-                    <div class="row"><h:outputText value="Category: #{auction.category.name}"/></div>
-                    <div class="row"><h:outputText value="#{auction.title}"/></div>
-                    <div class="row"><h:outputText value="#{auction.description}"/></div>
-                    <div class="row"><h:outputText value="Price: #{auction.price}"/></div>
-                    <div class="row>"><h:outputText value="#{auction.id}"/> </div>
-
+            <ui:param name="auction" value="#{auctionController.getAuctionById()}"/>
+            <div class="col-2"
+                 style=" border: 1px solid black ;margin-top: 20px; margin-left: 10px; height: 400px; width: 2000px;">
+                <div class="row"><h:graphicImage value="#{auction.photos.get(0).path}" styleClass="row"
+                                                 style="margin-top: 10px;margin-left: 20px; width: 200px; height: 200px;"/>
                 </div>
+                <div class="row"><h:outputText value="ID: #{auction.id}"/></div>
+                <div class="row"><h:outputText value="Category: #{auction.category.name}"/></div>
+                <div class="row"><h:outputText value="#{auction.title}"/></div>
+                <div class="row"><h:outputText value="#{auction.description}"/></div>
+                <div class="row"><h:outputText value="Price: #{auction.price}"/></div>
+                <div class="row>"><h:outputText value="#{auction.id}"/></div>
+                <div class="row">
+                    <h:button value="Edit" outcome="editauction.xhtml" >
+                        <f:param name="edit" value="#{auction.id}"/>
+                    </h:button>
+                </div>
+
+            </div>
         </div>
     </div>
 

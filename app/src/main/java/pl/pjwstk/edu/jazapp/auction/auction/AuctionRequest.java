@@ -25,6 +25,17 @@ public class AuctionRequest {
         photos.add(new Photo());
     }
 
+    public AuctionRequest(Auction auction) {
+        this.id = auction.getId();
+        this.title = auction.getTitle();
+        this.description = auction.getDescription();
+        this.price = auction.getPrice();
+        this.categoryId = auction.getCategory().getId();
+        this.sectionId = auction.getCategory().getSection().getId();
+        this.owner = auction.getOwner().getUsername();
+        this.photos = auction.getPhotos();
+    }
+
     public String getTitle() {
         return title;
     }

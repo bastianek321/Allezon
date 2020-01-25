@@ -20,7 +20,8 @@ public class AuctionController {
     AuctionRequest auctionRequest;
     @Inject
     AuctionRepository auctionRepository;
-
+    @Inject
+    ParamRetriever paramRetriever;
 
 
     public void add(){
@@ -30,6 +31,19 @@ public class AuctionController {
         auctionRepository.addToDatabase(auction);
         creatorService.addPhoto(photo);
         System.out.println("Added auction: "+auction.getTitle()+ " "+auction.getId());
+    }
+
+    public Auction getAuctionById(){
+        if(paramRetriever.contains("auction")){
+            try {
+                var auctionId = paramRetriever.getLong("auction");
+                return auctionRepository.getAuctionById(auctionId);
+            } catch (NumberFormatException e){
+                return null;
+            }
+
+        }
+        else return null;
     }
 
     public List<Auction> getAllAuctions(){ return auctionRepository.getAllAuctions();}

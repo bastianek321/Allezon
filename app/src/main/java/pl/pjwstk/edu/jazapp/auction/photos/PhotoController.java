@@ -22,7 +22,7 @@ public class PhotoController {
 
     }
 
-    public String getPhotos(Long auction){
+    public Photo getPhotos(Long auction){
         return photoRepository.getPhotoByAuction(auction);
     }
 }

@@ -83,6 +83,7 @@ public class Auction {
         this.category = category;
     }
 
+
     public List<Photo> getPhotos() {
         return photos;
     }
