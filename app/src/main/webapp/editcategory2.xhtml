@@ -19,7 +19,7 @@
                 <h3><label for="categorylist">Choose category to edit</label></h3>
                 <h2><h:selectOneMenu styleClass="form-control" id="categorylist" value="#{sectionRequest.id}"
                                      style="width: 100px;">
-                    <f:selectItem itemLabel="Select section" itemValue=""/>
+                    <f:selectItem itemLabel="Select category" itemValue=""/>
                     <f:selectItems value="#{auctionCreatorService.allSections}" var="section"
                                    itemLabel="#{section.name}" itemValue="#{section.id}"/>
                 </h:selectOneMenu>

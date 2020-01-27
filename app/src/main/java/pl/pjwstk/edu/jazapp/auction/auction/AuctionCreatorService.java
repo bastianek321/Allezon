@@ -40,6 +40,8 @@ public class AuctionCreatorService {
         return categoryRepository.getAllCategories();
     }
 
+    public List<Category> getCategoryBySectionId(Long id){return categoryRepository.getCategoriesBySectionId(id);}
+
     public ProfileEntity getOwner(){
         return sessionAllezon.getProfile();
     }
