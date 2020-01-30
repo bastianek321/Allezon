@@ -9,6 +9,7 @@ import pl.pjwstk.edu.jazapp.auction.photos.PhotoRepository;
 import pl.pjwstk.edu.jazapp.auction.section.SectionRepository;
 import pl.pjwstk.edu.jazapp.users.SessionAllezon;
 import pl.pjwstk.edu.jazapp.users.profile.ProfileEntity;
+import pl.pjwstk.edu.jazapp.utils.ParamRetriever;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -28,6 +29,9 @@ public class AuctionCreatorService {
     @Inject
     PhotoRepository photoRepository;
 
+    @Inject
+    ParamRetriever paramRetriever;
+
     public List<Section> getAllSections(){return sectionRepository.getAllSections();}
 
     public void addPhoto(Photo photo) {photoRepository.addToDatabase(photo);}
@@ -40,7 +44,14 @@ public class AuctionCreatorService {
         return categoryRepository.getAllCategories();
     }
 
-    public List<Category> getCategoryBySectionId(Long id){return categoryRepository.getCategoriesBySectionId(id);}
+    public List<Category> getCategoriesBySectionParameter(){
+        if(paramRetriever.contains("edit")){
+            Long id = paramRetriever.getLong("edit");
+            return categoryRepository.getCategoriesBySectionId(id);
+        }
+        return null;
+
+    }
 
     public ProfileEntity getOwner(){
         return sessionAllezon.getProfile();

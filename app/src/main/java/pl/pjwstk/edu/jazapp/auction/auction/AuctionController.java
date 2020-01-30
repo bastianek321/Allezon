@@ -28,8 +28,12 @@ public class AuctionController {
         Auction auction = new Auction(auctionRequest.getTitle(), auctionRequest.getDescription(), auctionRequest.getPrice(),
                 auctionRepository.getCategoryById(auctionRequest.getCategoryId()), creatorService.getOwner() );
         Photo photo = new Photo(auctionRequest.getPhotos().get(0).getPath(), auction);
+        Photo photo1 = new Photo(auctionRequest.getPhotos().get(1).getPath(), auction);
+        Photo photo2 = new Photo(auctionRequest.getPhotos().get(2).getPath(), auction);
         auctionRepository.addToDatabase(auction);
         creatorService.addPhoto(photo);
+        creatorService.addPhoto(photo1);
+        creatorService.addPhoto(photo2);
         System.out.println("Added auction: "+auction.getTitle()+ " "+auction.getId());
     }
 

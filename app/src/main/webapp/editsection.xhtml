@@ -16,8 +16,8 @@
         <ui:include src="body.xhtml"/>
         <div class="row" style="margin-left:600px;width: 400px; height: auto;">
             <h:form style="margin-top: 200px;">
-                <h3><label for="sectionlist">Choose section to edit</label></h3>
-                <h2><h:selectOneMenu styleClass="form-control" id="sectionlist" value="#{sectionRequest.id}"
+                <h3><label for="sectionList">Choose section to edit</label></h3>
+                <h2><h:selectOneMenu styleClass="form-control" id="sectionList" value="#{sectionRequest.id}"
                                      style="width: 100px;">
                     <f:selectItem itemLabel="Select section" itemValue=""/>
                     <f:selectItems value="#{auctionCreatorService.allSections}" var="section"

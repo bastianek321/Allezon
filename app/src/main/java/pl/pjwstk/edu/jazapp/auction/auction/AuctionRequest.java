@@ -22,6 +22,9 @@ public class AuctionRequest {
     private List<Photo> photos = new ArrayList<>();
 
     public AuctionRequest() {
+
+        photos.add(new Photo());
+        photos.add(new Photo());
         photos.add(new Photo());
     }
 

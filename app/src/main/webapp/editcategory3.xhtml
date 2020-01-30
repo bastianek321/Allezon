@@ -17,17 +17,13 @@
         <ui:include src="body.xhtml"/>
         <div class="row" style="margin-left:600px;width: 400px; height: auto;">
             <h:form style="margin-top: 200px;">
-                <h3>Choose category to edit</h3>
-                <c:forEach items="#{categoryEditController.categoriesBySection}" var="category" >
-                    <h:link outcome="editcategory3.xhtml" >
-                        <div class="row"><h:outputText value="#{category.name}" style="font-size: 30px;"/> </div>
-                        <f:param name="category" value="#{category.id}" />
-                    </h:link>
-                </c:forEach>
+                <h3>Enter new name</h3>
+                <h2><h:inputText value="#{categoryEditController.categoryRequest.name}"/></h2>
+                <h:inputHidden value="#{categoryEditController.categoryRequest.id}"/>
+                <f:param value="#{categoryEditController.categoryRequest.id}" name="category"/>
+                <h:commandButton value="Edit" action="#{categoryEditController.edit}"/>
             </h:form>
         </div>
     </div>
-
-
 </h:body>
 </html>

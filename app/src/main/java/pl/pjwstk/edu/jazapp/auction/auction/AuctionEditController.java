@@ -42,7 +42,6 @@ public class AuctionEditController {
             service.editPhoto(photo);
             FacesContext context = FacesContext.getCurrentInstance();
             HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
-            System.out.println("nie diałam");
             try {
                 response.sendRedirect("showauction.xhtml?auction=" + auction.getId());
             } catch (IOException e) {
@@ -51,23 +50,6 @@ public class AuctionEditController {
         }
         else System.out.println("Auction going by this ID does not exist");
     }
-
-
-    public Auction getAuctionById(){
-
-        if(paramRetriever.contains("edit")){
-            try {
-                var auctionId = paramRetriever.getLong("edit");
-                return auctionRepository.getAuctionById(auctionId);
-            } catch (NumberFormatException e){
-                return null;
-            }
-        }
-        else return null;
-
-    }
-
-
 
     public AuctionRequest getRequest() {
         if(request==null){

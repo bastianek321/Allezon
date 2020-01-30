@@ -38,6 +38,8 @@
                 </h2>
                 <h3><label for="photo">Miniature</label> </h3>
                 <h2><h:inputText value="#{auctionRequest.photos.get(0).path}" style="width: 300px" styleClass="form-control" id="photo"/> </h2>
+                <h2><h:inputText value="#{auctionRequest.photos.get(1).path}" style="width: 300px" styleClass="form-control" /> </h2>
+                <h2><h:inputText value="#{auctionRequest.photos.get(2).path}" style="width: 300px" styleClass="form-control" /> </h2>
             </div>
 
             <h:commandButton styleClass="btn btn-info" action="#{auctionController.add}" value="Add"

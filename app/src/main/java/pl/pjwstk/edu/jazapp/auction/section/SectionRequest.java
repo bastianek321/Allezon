@@ -1,6 +1,8 @@
 package pl.pjwstk.edu.jazapp.auction.section;
 
 
+import pl.pjwstk.edu.jazapp.auction.entities.Section;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -10,6 +12,14 @@ public class SectionRequest {
 
     private String name;
     private Long id;
+
+    public SectionRequest(Section section) {
+        this.name = section.getName();
+        this.id = section.getId();
+    }
+
+    public SectionRequest() {
+    }
 
     public String getName() {
         return name;

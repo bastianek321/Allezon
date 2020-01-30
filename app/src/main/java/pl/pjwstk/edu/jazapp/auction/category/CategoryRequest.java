@@ -1,5 +1,7 @@
 package pl.pjwstk.edu.jazapp.auction.category;
 
+import pl.pjwstk.edu.jazapp.auction.entities.Category;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -10,6 +12,15 @@ public class CategoryRequest {
     private String name;
     private Long id;
     private Long sectionId;
+
+    public CategoryRequest(Category category) {
+        this.id = category.getId();
+        this.name = category.getName();
+        this.sectionId = category.getSection().getId();
+    }
+
+    public CategoryRequest() {
+    }
 
     public String getName() {
         return name;
